@@ -19,6 +19,7 @@ body {
 
   height: 100vh;
   background-color: var(--background);
+  background-size: cover;
 }
 
 main {
@@ -31,7 +32,7 @@ body > div {
   flex-basis: 64rem;
 }
 
-ul {
+#sidebar {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -57,4 +58,23 @@ button {
 
 button:hover {
   transform: scale(1.05);
+}
+
+header {
+  background-color: hsl(from var(--background) h s 25%);
+  
+  border-radius: 10px;
+  position: sticky;
+  top: 1rem;
+  padding: 1rem;
+  border: 1px solid whitesmoke;
+}
+
+header > ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+[class|="button"] {
+  background-color: blue;
 }
