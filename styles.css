@@ -1,0 +1,60 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Andalé Mono", monospace;
+  color: whitesmoke;
+  /* outline: 1px solid red; */
+}
+
+:root {
+  --background: #343231;
+  --primary: #ff7d31;
+  --border-radius: 1rem;
+}
+
+body {
+  display: flex;
+  align-items: stretch;
+  column-gap: 2rem;
+
+  height: 100vh;
+  background-color: var(--background);
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+body > div {
+  flex-grow: 1;
+  flex-basis: 64rem;
+}
+
+ul {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 3rem;
+  row-gap: .5rem;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  width: fit-content;
+}
+
+li {
+  list-style-type: none;
+  width: fit-content;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary);
+  transition: transform 0.1s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
