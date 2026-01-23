@@ -81,6 +81,8 @@ header {
   top: 1rem;
   padding: 1rem;
   border: 1px solid var(--primary);
+
+  box-shadow: var(--primary) 5px 5px;
 }
 
 header > ul {
