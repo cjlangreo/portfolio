@@ -113,10 +113,6 @@ header li {
   background-color: blue;
 }
 
-header button {
-  line-height: 0;
-  text-align: center;
-}
 
 img {
   width: 2rem;
