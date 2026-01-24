@@ -48,7 +48,6 @@ body > div {
   flex-direction: column;
   top: 100px;
   row-gap: .5rem;
-  padding: 0 1rem 1rem 1rem;
   border-radius: var(--border-radius);
   width: fit-content;
 }
