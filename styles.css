@@ -126,3 +126,24 @@ img {
   width: 1px;
   background-color: var(--primary);
 }
+
+.modal {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 45%;
+  background-color: black;
+  z-index: 20;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.modal > div {
+  height: 100px;
+  width: 100px;
+  background-color: var(--primary);
+  border-radius: 10px;
+}
