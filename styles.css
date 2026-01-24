@@ -107,6 +107,12 @@ header li {
 
 #main-content h1 {
   font-size: 32px;
+.round-image {
+  height: 200px;
+  width: auto;
+  border-radius: 100%;
+  box-shadow: var(--primary) 10px 10px;
+  outline: 2px solid var(--primary) ;
 }
 
 [class|="button"] {
