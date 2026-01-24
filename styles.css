@@ -107,6 +107,9 @@ header li {
 
 #main-content h1 {
   font-size: 32px;
+  font-weight: 300;
+}
+
 .round-image {
   height: 200px;
   width: auto;
