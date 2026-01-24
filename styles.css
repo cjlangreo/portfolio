@@ -43,6 +43,12 @@ body > div {
 }
 
 #sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+
+#sidebar > ul {
   position: fixed;
   display: flex;
   flex-direction: column;
