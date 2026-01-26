@@ -44,6 +44,10 @@ body > div {
   flex-basis: 64rem;
 }
 
+aside {
+  width: 100%;
+}
+
 #sidebar {
   display: flex;
   flex-direction: column;
