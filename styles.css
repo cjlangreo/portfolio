@@ -163,8 +163,7 @@ header img {
   position: absolute;
   height: 100%;
   width: 100%;
-  opacity: 45%;
-  background-color: black;
+  background-color: rgba(0, 0, 0, .4);
   z-index: 20;
 
   display: flex;
