@@ -134,11 +134,23 @@ header li {
 }
 
 
-img {
-  width: 2rem;
-  height: auto;
-  
+header a {
+  display: flex;
+  transition: transform 0.1s;
 }
+
+header a:hover{
+  transform: scale(1.1, 1.1);
+}
+
+header img {
+  width: 2.5rem;
+  align-self: center;
+}
+
+
+
+
 
 .divider-vertical {
   height: auto;
