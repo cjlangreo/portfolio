@@ -196,3 +196,12 @@ header img {
 .close-button > img {
   width: 30px;
 }
+
+#left h1 {
+  color: var(--primary);
+  letter-spacing: 10px;
+  font-weight: 300;
+  font-size: 4rem;
+  line-height: 2.6rem;
+  margin-bottom: 1rem;
+}
