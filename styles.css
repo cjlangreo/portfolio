@@ -29,6 +29,8 @@ body {
   height: 100vh;
   background-color: var(--background);
   background-size: cover;
+
+  padding: 1rem;
 }
 
 main {
