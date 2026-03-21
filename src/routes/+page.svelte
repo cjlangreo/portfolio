@@ -22,8 +22,9 @@
   var currentTheme = $state();
   currentTheme = "game";
 
-  function switchTitle(element: HTMLButtonElement) {
-    element.classList.toggle("-translate-y-15");
+  function switchTitle() {
+    const switchElement: HTMLButtonElement = document.getElementById("switchElement") as HTMLButtonElement
+    switchElement.classList.toggle("-translate-y-15");
     currentTheme = currentTheme === "frontend" ? "game" : "frontend";
     const cursorPath: HTMLElement = document.getElementById(
       "cursorPath",
@@ -97,8 +98,9 @@
         class="font-semibold flex items-start gap-x-3 mt-10 lg:mt-0"
       >
         <button
+          id="switchElement"
           class="flex flex-col *:text-6xl *:text-end cursor-pointer transition-transform"
-          onclick={() => switchTitle(this)}
+          onclick={switchTitle}
         >
           <Heading id="game" class="text-game">Game</Heading>
           <Heading id="frontend" class="text-frontend">Frontend</Heading>
