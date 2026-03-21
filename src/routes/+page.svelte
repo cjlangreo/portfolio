@@ -15,7 +15,7 @@
 
   import Project from "../components/Project.svelte";
   import { fade } from "svelte/transition";
-  import { GithubSolid, LinkedinSolid } from "flowbite-svelte-icons";
+  import { FacebookSolid, GithubSolid, LinkedinSolid } from "flowbite-svelte-icons";
 
   // const showOnPx: number = 1;
   // let shadow: boolean = $state(false);
@@ -62,19 +62,22 @@
   <ul class="flex justify-center gap-x-5">
     <li><a href="#home">Home</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="absolute right-3 flex gap-x-2">
     <a href="https://github.com/cjlangreo" target="_blank">
       <GithubSolid class="size-10" />
     </a>
     <a
+    target="_blank"
       href="https://www.linkedin.com/in/cjlangreo/"
       class="{currentTheme === 'game'
         ? 'bg-game'
         : 'bg-frontend'} text-background-main transition-colors"
     >
       <LinkedinSolid class="size-10" />
+    </a>
+    <a href="https://www.facebook.com/gboy.ra.1" target="_blank">
+      <FacebookSolid class="size-10"/>
     </a>
   </div>
 </div>
