@@ -4,9 +4,11 @@ node_modules
 .output
 .vercel
 .netlify
+.vscode
 .wrangler
 /.svelte-kit
 /build
+/functions
 
 # OS
 .DS_Store
