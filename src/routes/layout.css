@@ -1,5 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Schoolbell&family=Sirivennela&display=swap');
 @import 'tailwindcss';
 
-body {
-  height: 100vh;
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --color-game: #F77754;
+  --color-frontend: #2C687B;
+  --color-background-main: #F5E9D8;
+  --color-background-alt: #EAD1AE;
+  --color-primary: #061E29;
+
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
 }
+
+
+
+:root {
+  font-family: 'Lexend', sans-serif;
+}
+
+
+html,
+body {
+  height: 100%;
+}
+
