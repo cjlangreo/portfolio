@@ -21,41 +21,42 @@
 >
   <!-- Header -->
   <button
-    class="projectComponent flex text-background-alt font-bold text-lg px-3 py-3 items-center w-full cursor-pointer {type ===
-    'frontend'
-      ? 'bg-frontend'
-      : 'bg-game'}"
+    class="projectComponent flex flex-col text-background-alt font-bold text-lg items-center w-full cursor-pointer"
     onclick={onHeaderClick}
   >
-    <div class="w-full">
-      {#if github}
-        <a href={github} target="_blank">
-          <GithubSolid class="size-10" />
-        </a>
-      {/if}
+    <div class="{type === 'frontend' ? 'bg-frontend' : 'bg-game'} w-full flex items-center px-5">
+      <div class="w-full">
+        {#if github}
+          <a href={github} target="_blank">
+            <GithubSolid class="size-10" />
+          </a>
+        {/if}
+      </div>
+
+      <div class="flex flex-col items-center py-3 gap-y-2 w-full">
+        <Heading class="w-full text-2xl md:text-4xl font-extrabold"
+          >{projectName}</Heading
+        >
+        <Heading
+          class="w-fit text-nowrap text-sm md:text-xl px-3 {type == 'frontend'
+            ? 'bg-game'
+            : 'bg-frontend'} rounded-full"
+          tag="h2">{position}</Heading
+        >
+      </div>
+      <div class="w-full"></div>
     </div>
-    <div class="flex flex-col gap-y-2 w-full">
-      <Heading class="w-full text-2xl md:text-4xl font-extrabold">{projectName}</Heading>
-      <Heading
-        class="w-full text-nowrap text-sm md:text-xl px-3 {type == 'frontend'
-          ? 'bg-game'
-          : 'bg-frontend'} rounded-full"
-        tag="h2">{position}</Heading
-      >
+
+    <div class="flex flex-col h-full">
+      <img src={image} alt="" class="h-full" />
+      <div class="p-3 w-full flex flex-col justify-center">
+        <p class="text-gray-800">{introText}</p>
+      </div>
     </div>
-    <div class="w-full"></div>
   </button>
 
-  <div class="flex flex-col h-full">
-    <img src={image} alt="" class="h-full" />
-    <div class="p-3 w-full flex flex-col justify-center">
-      <p>{introText}</p>
-    </div>
-  </div>
-
-  
   {#if open}
-    <hr class=" my-5 {type === "game" ? "border-game" : "border-frontend"}">
+    <hr class=" my-5 {type === 'game' ? 'border-game' : 'border-frontend'}" />
     <div class="" transition:slide>
       {@render children()}
     </div>
