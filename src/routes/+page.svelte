@@ -2,33 +2,41 @@
   import { Heading, P } from "flowbite-svelte";
   import MePhoto from "$lib/assets/me.png";
 
-  
   import TymnAboutUs from "$lib/assets/tymn/about-us.png";
   import TymnAddStudent from "$lib/assets/tymn/add-student.png";
   import TymnScan from "$lib/assets/tymn/scan-2.png";
   import TymnAttendance from "$lib/assets/tymn/attendance.png";
-  
-  import VoyagersMainMenu from "$lib/assets/voyagers/mainmenu.png";
-  import VoyagersMission from "$lib/assets/voyagers/mission.png"
-  import VoyagersStart from "$lib/assets/voyagers/start.png"
-  import VoyagersGame from "$lib/assets/voyagers/game.png"
 
+  import VoyagersMainMenu from "$lib/assets/voyagers/mainmenu.png";
+  import VoyagersMission from "$lib/assets/voyagers/mission.png";
+  import VoyagersStart from "$lib/assets/voyagers/start.png";
+  import VoyagersGame from "$lib/assets/voyagers/game.png";
+
+  import IGarcianMenu from "$lib/assets/igarcian/main-menu.png"
+  
   import Project from "../components/Project.svelte";
-  import { fade } from "svelte/transition";
   import { GithubSolid, LinkedinSolid } from "flowbite-svelte-icons";
+  import { onMount } from "svelte";
+
+  import { MediaQuery } from "svelte/reactivity";
+  const mediumMediaQuery = new MediaQuery('min-width: 768px');
 
   // const showOnPx: number = 1;
   // let shadow: boolean = $state(false);
-  var currentTheme = $state();
-  currentTheme = "game";
+  let switchElement: HTMLButtonElement;
+  let currentTheme: "frontend" | "game" = $state("game");
+  let cursorPath: HTMLElement;
+
+  onMount(() => {
+    cursorPath = document.getElementById("cursorPath") as HTMLElement;
+    switchElement = document.getElementById(
+      "switchElement",
+    ) as HTMLButtonElement;
+  });
 
   function switchTitle() {
-    const switchElement: HTMLButtonElement = document.getElementById("switchElement") as HTMLButtonElement
-    switchElement.classList.toggle("-translate-y-15");
+    switchElement.classList.toggle(mediumMediaQuery.current ? "-translate-y-15" : "-translate-y-9");
     currentTheme = currentTheme === "frontend" ? "game" : "frontend";
-    const cursorPath: HTMLElement = document.getElementById(
-      "cursorPath",
-    ) as HTMLElement;
     cursorPath.setAttribute(
       "fill",
       currentTheme === "game" ? "rgb(247, 119, 84)" : "rgb(44, 104, 123)",
@@ -59,12 +67,13 @@
     drop-shadow-2xl py-4 flex justify-center items-center bg-background-alt rounded-2xl mx-5 top-5 transition-colors sticky z-20 text-2xl font-semibold"
 >
   <span class="absolute left-3 hidden lg:block">chanz jryko langreo</span>
+
   <ul class="flex justify-center gap-x-5">
     <li><a href="#home">Home</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="absolute right-3 flex gap-x-2">
+  <div class="absolute right-3 hidden md:flex gap-x-2">
     <a href="https://github.com/cjlangreo" target="_blank">
       <GithubSolid class="size-10" />
     </a>
@@ -85,7 +94,13 @@
     class="bg-background-main w-full flex flex-col items-center py-24 px-5 gap-y-32"
   >
     <div class="flex flex-col lg:flex-row items-center gap-x-10">
-      <p class="lg:hidden text-6xl transition-colors {currentTheme === "game" ? "text-game" : "text-frontend"}">chanz jryko langreo</p>
+      <p
+        class="lg:hidden text-4xl md:text-6xl text-center text-nowrap transition-colors {currentTheme === 'game'
+          ? 'text-game'
+          : 'text-frontend'}"
+      >
+        chanz jryko langreo
+      </p>
       <div
         class="rounded-full overflow-clip transition-colors mt-16 lg:mt-0 {currentTheme ===
         'game'
@@ -94,19 +109,18 @@
       >
         <img src={MePhoto} alt="" class="w-96" />
       </div>
-      <div
-        class="font-semibold flex items-start gap-x-3 mt-10 lg:mt-0"
-      >
+
+      <div class="font-semibold flex items-start gap-x-3 mt-24 lg:mt-0">
         <button
           id="switchElement"
-          class="flex flex-col *:text-6xl *:text-end cursor-pointer transition-transform"
+          class="flex flex-col *:text-end cursor-pointer transition-transform"
           onclick={switchTitle}
         >
-          <Heading id="game" class="text-game">Game</Heading>
-          <Heading id="frontend" class="text-frontend">Frontend</Heading>
+          <Heading id="game" class="text-3xl md:text-6xl text-game">Game</Heading>
+          <Heading id="frontend" class="text-3xl md:text-6xl text-frontend">Frontend</Heading>
         </button>
         <div class="flex flex-col">
-          <Heading class="text-primary text-6xl">Developer</Heading>
+          <Heading class="text-primary text-3xl md:text-6xl">Developer</Heading>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 640 640"
@@ -121,12 +135,16 @@
           </svg>
         </div>
       </div>
+
     </div>
-    <div class="max-w-[50%]">
-      <p class="text-2xl text-center">
-        <span class="text-frontend">Frontend Developer by <strong>profession</strong>.</span><br
-        />
-        <span class="text-game">Game Developer by <strong>passion</strong>.</span>
+    <div class="">
+      <p class="text-2xl text-center text-nowrap">
+        <span class="text-frontend"
+          >Frontend Developer by <strong>profession</strong>.</span
+        ><br />
+        <span class="text-game"
+          >Game Developer by <strong>passion</strong>.</span
+        >
       </p>
     </div>
   </section>
@@ -134,7 +152,7 @@
   <div class="p-5 w-full">
     <section
       id="projects"
-      class="flex flex-col justify-center gap-y-16 bg-background-alt items-center rounded-4xl py-5 "
+      class="flex flex-col justify-center gap-y-16 bg-background-alt items-center rounded-4xl py-5 w-full"
     >
       <Heading
         tag="h2"
@@ -142,8 +160,9 @@
           ? 'text-game'
           : 'text-frontend'} transition-colors">PROJECTS</Heading
       >
-      <div class="flex flex-col gap-y-16 items-center">
+      <div class="flex flex-col gap-y-16 items-center w-full">
         <Project
+          image={IGarcianMenu}
           type="game"
           projectName="I, Garcian"
           position="Project Manager / Leader Developer"
@@ -176,7 +195,7 @@
           github="https://github.com/cjlangreo/tymn-attendance-checker"
           projectName="Tymn, Attendance Checker"
         >
-          <div class="grid grid-cols-2 gap-5 ">
+          <div class="grid grid-cols-2 gap-5">
             <img class="w-full" src={TymnAboutUs} alt="" />
             <img class="w-full" src={TymnAddStudent} alt="" />
             <img class="w-full" src={TymnScan} alt="" />
