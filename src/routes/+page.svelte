@@ -108,6 +108,7 @@
   <ul class="flex justify-center gap-x-5">
     <li><a href="#home">Home</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#projects">Contact</a></li>
   </ul>
   <div class="absolute right-3 hidden md:flex gap-x-2">
     {@render github()}
